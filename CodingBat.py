@@ -1,6 +1,21 @@
 # I saved the answers from code bat that where interesting or differed from their soloutions
 
+def pos_neg(a, b, negative):
+  if (negative == False):
+    return (a < 0 and b > 0 or (a > 0 and b < 0))
+  else:
+    return (a < 0 and b < 0)
 
+#-------------------------------------------------
+
+def not_string(str):
+  s1 = str.strip()
+  if (s1[:3] == 'not'):
+    return str
+                               # originally wrote:     else:
+  return 'not ' + str          #                         return 'not ' + str
+
+#---------------------------------------------------
 
 def missing_char(str, n):
   char = str[n]
@@ -29,7 +44,7 @@ def front_back(str):
 
 # Is the same as
 
-def front_back(str):
+def front_back2(str):
   if len(str) <= 1:
     return str
   
