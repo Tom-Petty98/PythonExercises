@@ -35,3 +35,13 @@ def times_table():
 
 times_table()
 
+#---------------------------------------------
+#alternate method
+
+def times_table2():
+    for i in range(1, 13):
+        for j in range(1, 13):
+            print(i * j, end='\t') 
+        print('')
+    
+times_table2()
