@@ -11,8 +11,8 @@ def make_bricks(small, big, goal):
     
   return False
 
-print(make_bricks(1000000, 1000, 1000100))
-print(make_bricks(43, 1, 46))
+#print(make_bricks(1000000, 1000, 1000100))
+#print(make_bricks(43, 1, 46))
 
 
 #-------------------------------
@@ -32,7 +32,7 @@ def make_bricks2(small, big, goal):
 #--------------------------------
 # The most efficient Method
 
-def make_bricks(small, big, goal):
+def make_bricks3(small, big, goal):
   minSmallReq = goal % 5 
   max = small + (big * 5)
   
