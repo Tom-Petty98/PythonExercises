@@ -1,3 +1,7 @@
+# We want to make a row of bricks that is goal inches long. We have a number of 
+# small bricks (1 inch each) and big bricks (5 inches each). Return True if it is 
+# possible to make the goal by choosing from the given bricks.
+
 def make_bricks(small, big, goal):
   
   for i in range(big + 1):
@@ -42,3 +46,18 @@ def make_bricks3(small, big, goal):
     return False
   else:
     return True
+
+# ---------------------------------
+# The same as before but returning the num of small bars used 
+
+def make_chocolate(small, big, goal):
+    minSmallReq = goal % 5
+    total = small + (big * 5)
+    diff = goal - big * 5
+   
+    if minSmallReq > small or total < goal:
+      return -1
+    elif big * 5 > goal:
+      return minSmallReq
+    else:
+      return diff
