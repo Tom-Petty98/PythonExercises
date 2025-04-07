@@ -1,0 +1,81 @@
+from runtest import run_tests
+
+def zipmap(keys, values):
+    if len(keys) == 0 or len(values) == 0:
+        return {}
+    dict = zipmap(keys[1:], values[1:])
+    dict[keys[0]] = values[0]
+    return dict
+
+run_cases = [
+    (
+        ["The Grand Budapest Hotel", "Fantastic Mr. Fox", "Moonrise Kingdom"],
+        [8.1, 7.9, 7.8],
+        {
+            "The Grand Budapest Hotel": 8.1,
+            "Fantastic Mr. Fox": 7.9,
+            "Moonrise Kingdom": 7.8,
+        },
+    ),
+    (
+        ["The Royal Tenenbaums", "The Life Aquatic with Steve Zissou", "Isle of Dogs"],
+        [7.6, 7.3, 7.9],
+        {
+            "The Royal Tenenbaums": 7.6,
+            "The Life Aquatic with Steve Zissou": 7.3,
+            "Isle of Dogs": 7.9,
+        },
+    ),
+]
+
+submit_cases = run_cases + [
+    ([], [], {}),
+    ([""], [], {}),
+    ([], [0.0], {}),
+    (
+        [
+            "Rushmore",
+            "The Darjeeling Limited",
+            "The French Dispatch",
+            "The Wonderful Story of Henry Sugar and Three More",
+        ],
+        [7.7, 7.2, 7.4],
+        {
+            "Rushmore": 7.7,
+            "The Darjeeling Limited": 7.2,
+            "The French Dispatch": 7.4,
+        },
+    ),
+    (
+        ["Bottle Rocket", "Asteroid City", "The Grand Budapest Hotel"],
+        [7.0, 7.6, 8.1, 0.0],
+        {
+            "Bottle Rocket": 7.0,
+            "Asteroid City": 7.6,
+            "The Grand Budapest Hotel": 8.1,
+        },
+    ),
+]
+
+
+def print_dict(d):
+    for key, value in sorted(d.items()):
+        print(f" * {key}: {value}")
+
+
+def test(keys, values, expected_output):
+    print("---------------------------------")
+    print(f"Inputs: {keys}, {values}")
+    print("Expecting:")
+    print_dict(expected_output)
+    result = zipmap(keys, values)
+    print("Actual:")
+    print_dict(result)
+    if result == expected_output:
+        print("Pass")
+        return True
+    print("Fail")
+    return False
+
+
+run_tests(submit_cases, test)
