@@ -5,6 +5,7 @@ from inspect import getfile, currentframe
 
 
 # You cannot just import modules from parent directories instead you have to navigate into the parentdirectory before importing
+#https://docs.python.org/3/tutorial/modules.html
 currentdir = path.dirname(path.abspath(getfile(currentframe())))
 parentdir = path.dirname(currentdir)
 sys.path.insert(0, parentdir) 

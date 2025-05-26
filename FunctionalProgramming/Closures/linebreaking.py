@@ -1,5 +1,6 @@
 from functools import reduce
 
+#breaks up strings into lines of a certain length
 def lineator(line_length):
     def lineate(document):
         words = document.split()
